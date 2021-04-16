@@ -11,5 +11,22 @@ module.exports = {
             title: '标题在此',
             template: 'src/assets/index.html'
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.scss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require("dart-sass")
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 };
