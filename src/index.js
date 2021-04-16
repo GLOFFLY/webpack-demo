@@ -2,18 +2,16 @@ import x from './x.js'
 import png from './assets/1.png'
 
 const div = document.getElementById('app')
-console.log('div')
-console.log(div)
-div.innerHTML = `
+/* div.innerHTML = `
   <img src="${png}"> 
-`
+` */
 
 const button = document.createElement('button')
 button.innerText = '懒加载'
 button.onclick = () => {
-    const promise = import('./lazy')
-    promise.then((module) => {
-        module.default()
-    }, () => { })
+  const promise = import('./lazy')
+  promise.then((module) => {
+    module.default()
+  }, () => { })
 }
 div.appendChild(button)
